@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './App.css';
+import {LoginPage} from '@LoginPage';
 
 function App() {
   
@@ -9,7 +10,7 @@ function App() {
       <header className="App-header">
         <div>
           <nav>
-           
+           <div>Bingo!</div>
           </nav>
         </div>
         
