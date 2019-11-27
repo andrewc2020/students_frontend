@@ -1,7 +1,8 @@
 import React from 'react';
+import UserPage from './userPage/UserPage';
 
 import './App.css';
-import {LoginPage} from '@LoginPage';
+
 
 function App() {
   
@@ -10,8 +11,9 @@ function App() {
       <header className="App-header">
         <div>
           <nav>
-           <div>Bingo!</div>
+           <div />
           </nav>
+          <UserPage />
         </div>
         
       
