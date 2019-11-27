@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+
+
 import UserPage from './userPage/UserPage';
+import { authenticationService } from './_services/';
+
 
 
 it('renders without crashing', () => {
@@ -9,9 +13,14 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-it('creates adds a dynamic classw',()=>{
+it('adds a dynamic class',()=>{
   const div = document.createElement('div');
   ReactDOM.render(<UserPage />, div);
   ReactDOM.unmountComponentAtNode(div);
 
+})
+it('can import authenticationService',()=>{
+  authenticationService.login('Saladin Sebag', 'salam').then((value)=>{
+    console.log(value.user);
+  })
 })
