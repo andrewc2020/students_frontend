@@ -2,13 +2,16 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+import { authenticationService } from '../_services/authentication-service';
 
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
         // redirect to home if already logged in
-        
+        if (authenticationService.currentUserValue) { 
+            this.props.history.push('/');
+        }
     }
 
     render() {
@@ -30,17 +33,17 @@ class LoginPage extends React.Component {
                     })}
                     onSubmit={({ username, password }, { setStatus, setSubmitting }) => {
                         setStatus();
-                        // authenticationService.login(username, password)
-                        //     .then(
-                        //         user => {
-                        //             const { from } = this.props.location.state || { from: { pathname: "/" } };
-                        //             this.props.history.push(from);
-                        //         },
-                        //         error => {
-                        //             setSubmitting(false);
-                        //             setStatus(error);
-                        //         }
-                        //     );
+                        authenticationService.login(username, password)
+                            .then(
+                                user => {
+                                    const { from } = this.props.location.state || { from: { pathname: "/" } };
+                                    this.props.history.push(from);
+                                },
+                                error => {
+                                    setSubmitting(false);
+                                    setStatus(error);
+                                }
+                            );
                     }}
                     render={({ errors, status, touched, isSubmitting }) => (
                         <Form>
@@ -71,4 +74,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export default { LoginPage }; 
+export default LoginPage ; 

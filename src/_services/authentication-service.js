@@ -1,4 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
+import dotenv from 'dotenv';
 
 
 import { handleResponse } from '../_helpers/';
@@ -18,14 +19,16 @@ function login(username, password) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'userName': username, 'password':  password })
     };
-
-    return fetch(`http://localhost:5000/users/authenticate`, requestOptions)
+    let RUL="http://localhost:8000";
+    console.log(requestOptions);
+    return fetch(`${RUL}/users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-          //  localStorage.setItem('currentUser', JSON.stringify(user));
+            console.log(user);
+            localStorage.setItem('currentUser', JSON.stringify(user));
          //   console.log(user);
-         //   currentUserSubject.next(user);
+         currentUserSubject.next(user);
 
             return user;
         });
