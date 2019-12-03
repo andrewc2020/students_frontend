@@ -20,12 +20,12 @@ function login(username, password) {
         body: JSON.stringify({ 'userName': username, 'password':  password })
     };
     let RUL="http://localhost:8000";
-    console.log(requestOptions);
+    
     return fetch(`${RUL}/users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            console.log(user);
+           // console.log(user);
             localStorage.setItem('currentUser', JSON.stringify(user));
          //   console.log(user);
          currentUserSubject.next(user);

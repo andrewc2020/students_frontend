@@ -4,6 +4,8 @@ import App from './App/App';
 import LoginPage from './LoginPage/LoginPage';
 import HomePage from './HomePage/HomePage';
 import AdminPage from './AdminPage/AdminPage';
+import {userService} from './_services/user-service';
+import {ConsoleLog} from './_helpers/logger';
 
 
 import UserPage from './userPage/UserPage';
@@ -44,3 +46,9 @@ it('should import AdminPage without crashing',()=>{
   ReactDOM.unmountComponentAtNode(div);
 
 })
+// it('should retrieve the current user ',async ()=>{
+//   await authenticationService.login("Saladin Sebag", "salam")
+
+// await userService.getCurrentUser().then(user => console.log("current user ",user));
+
+//  });

@@ -12,13 +12,13 @@ class AdminPage extends React.Component {
     }
 
     componentDidMount() {
-      userService.getAll().then(users => this.setState({"users": users.users}));
-      userService.getAll().then(users => console.log("state",this.state.users));
+      userService.getAll().then(users => this.setState({users}));
+     
       
     }
 
     render() {
-        let {allUsers}  = this.state;
+        let {users}  = this.state;
        
         
         return (
@@ -28,10 +28,10 @@ class AdminPage extends React.Component {
                 <div>
                     All users from secure (admin only) api end point:
                    
-                    {allUsers &&
+                    {users &&
                         <ul>
                             
-                            {allUsers.map(user =>
+                            {users.map(user =>
                                 <li key={user._id}>{user.userName}</li>
                             )}
                         </ul>
