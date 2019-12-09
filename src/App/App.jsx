@@ -21,8 +21,8 @@ class App extends React.Component {
 
     componentDidMount() {
         authenticationService.currentUser.subscribe(x => this.setState({
-            currentUser: x && x.currentUser && x.currentUser.user,
-            isAdmin: x && x.currentUser && x.currentUser.user.isAdmin 
+            currentUser: x && x.user,
+            isAdmin: x && x.user && x.user.isAdmin 
         }));
     }
 

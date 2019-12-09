@@ -44,7 +44,7 @@ class HomePage extends React.Component {
                     Current user from storage:
                     {currentUser &&
                         <ul>
-                            <li>{currentUser.currentUser.user.userName}</li>
+                            <li>{currentUser.user.userName}</li>
                         </ul>
                     }
                     

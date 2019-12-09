@@ -6,6 +6,7 @@ import HomePage from './HomePage/HomePage';
 import AdminPage from './AdminPage/AdminPage';
 import {userService} from './_services/user-service';
 import {ConsoleLog} from './_helpers/logger';
+import assert from 'assert';
 
 
 
@@ -41,9 +42,8 @@ it('should import AdminPage without crashing',()=>{
   ReactDOM.unmountComponentAtNode(div);
 
 })
-// it('should retrieve the current user ',async ()=>{
-//   await authenticationService.login("Saladin Sebag", "salam")
-
-// await userService.getCurrentUser().then(user => console.log("current user ",user));
-
-//  });
+it('can login ordinary user authenticationService',()=>{
+  authenticationService.login('Plain Pam', 'plainoldpam').then((value)=>{
+    assert.equal(value.userName, "Plain Pam");
+  })
+})
