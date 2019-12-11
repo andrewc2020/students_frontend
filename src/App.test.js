@@ -42,7 +42,7 @@ it('should import AdminPage without crashing',()=>{
   ReactDOM.unmountComponentAtNode(div);
 
 })
-it('can login ordinary user authenticationService',()=>{
+it('can login ordinary user authenticationService', ()=>{
   authenticationService.login('Plain Pam', 'plainoldpam').then((value)=>{
     assert.equal(value.userName, "Plain Pam");
   })
