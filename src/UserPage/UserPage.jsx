@@ -1,28 +1,33 @@
 import React from 'react';
 import { authenticationService } from '../_services/authentication-service';
 import { userService } from '../_services/user-service';
+import { kittenService} from '../_services/kitten-service';
 
 
-class HomePage extends React.Component {
+class UserPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             currentUser: authenticationService.currentUserValue,
-            userFromApi: null
+            userFromApi: null,
+            kittens: null
         };
     }
 
     componentDidMount() {
         
        userService.getCurrentUser().then(userFromApi => this.setState({userFromApi}));
-    
+       kittenService.getAll().then(kittens => this.setState({kittens}));
     }
     render() {
-       const { currentUser, userFromApi } = this.state;
+       const { currentUser, userFromApi} = this.state;
+       let {kittens} = this.state;
+       
+       
         return (
             <div>
-                <h1>Home</h1>
+                <h1>About me</h1>
         <p>From storage: {currentUser.user.userName}</p>
     <p>Email: {currentUser.user.email}</p>
         <strong>{currentUser.user.isAdmin?"admin":"user"}</strong>
@@ -32,10 +37,25 @@ class HomePage extends React.Component {
                             <li>{userFromApi.userName}</li>
                         </ul>
                     }</div>
+                     <div>
+               
+               
+            </div>
+            <div><strong>kittens</strong>
+                <ul>
+                {
+                kittens && kittens.kittens &&
+                  kittens.kittens.map(kitten => <li key={kitten._id}>{kitten.name}</li>)
+                  }
+                
+                
+                </ul>
+            </div>
        
             </div>
+           
         );
     }
 }
 
-export default HomePage;
+export default UserPage;

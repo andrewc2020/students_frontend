@@ -1,5 +1,5 @@
 import React from 'react';
-import UserPage from './userPage/UserPage';
+
 import LoginPage from './LoginPage/LoginPage';
 
 import './App.css';

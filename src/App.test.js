@@ -4,6 +4,7 @@ import App from './App/App';
 import LoginPage from './LoginPage/LoginPage';
 import HomePage from './HomePage/HomePage';
 import AdminPage from './AdminPage/AdminPage';
+import UserPage from './UserPage/UserPage';
 import {userService} from './_services/user-service';
 import {ConsoleLog} from './_helpers/logger';
 import assert from 'assert';
@@ -46,4 +47,9 @@ it('can login ordinary user authenticationService', ()=>{
   authenticationService.login('Plain Pam', 'plainoldpam').then((value)=>{
     assert.equal(value.userName, "Plain Pam");
   })
+})
+it('should import UserPage without crashing',()=>{
+  const div = document.createElement('div');
+  ReactDOM.render(<UserPage />, div);
+  ReactDOM.unmountComponentAtNode(div);
 })
