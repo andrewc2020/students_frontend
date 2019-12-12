@@ -23,9 +23,9 @@ class HomePage extends React.Component {
         return (
             <div>
                 <h1>Home</h1>
-        <p>From storage: {currentUser.user.userName}</p>
-    <p>Email: {currentUser.user.email}</p>
-        <strong>{currentUser.user.isAdmin?"admin":"user"}</strong>
+        <p>From storage: {currentUser && currentUser.user && currentUser.user.userName}</p>
+    <p>Email: {currentUser && currentUser.user && currentUser.user.email}</p>
+        <strong>{currentUser && currentUser.user && currentUser.user.isAdmin?"admin":"user"}</strong>
         <div>Current user from secure api end point:
                     {userFromApi &&
                         <ul>
