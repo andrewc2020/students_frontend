@@ -51,10 +51,11 @@ class App extends React.Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-6 offset-md-3">
+                                    <Route path="/login" component={LoginPage} />
                                     <Route exact path="/" component={HomePage} />
                                     <Route path="/userpage" component={UserPage} />
                                     <PrivateRoute path="/admin" roles={[Role.Admin]} component={AdminPage} />
-                                    <Route path="/login" component={LoginPage} />
+                                   
                                 </div>
                             </div>
                         </div>
