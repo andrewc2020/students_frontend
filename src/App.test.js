@@ -8,6 +8,7 @@ import UserPage from './UserPage/UserPage';
 import {userService} from './_services/user-service';
 import {ConsoleLog} from './_helpers/logger';
 import assert from 'assert';
+import dotenv from 'dotenv';
 
 
 
@@ -52,4 +53,7 @@ it('should import UserPage without crashing',()=>{
   const div = document.createElement('div');
   ReactDOM.render(<UserPage />, div);
   ReactDOM.unmountComponentAtNode(div);
+})
+it('should access environment variables',()=>{
+  assert.equal(process.env.REST_URL.concat('/web'),"http://localhost:8000/web");
 })

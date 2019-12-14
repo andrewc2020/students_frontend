@@ -4,7 +4,8 @@ export const kittenService = {
     getById
 };
 
-let RUL="http://localhost:8000"
+
+let RUL = process.env.REST_URL;
 
 
 function getAll(){

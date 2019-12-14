@@ -6,7 +6,8 @@ export const userService = {
     getById,
     getCurrentUser
 };
-let RUL="http://localhost:8000"
+
+let RUL = process.env.REST_URL;
 
 function getAll() {
     const requestOptions = { method: 'GET', headers: authHeader() };
