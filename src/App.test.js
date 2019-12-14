@@ -54,6 +54,3 @@ it('should import UserPage without crashing',()=>{
   ReactDOM.render(<UserPage />, div);
   ReactDOM.unmountComponentAtNode(div);
 })
-it('should access environment variables',()=>{
-  assert.equal(process.env.REST_URL.concat('/web'),"http://localhost:8000/web");
-})
