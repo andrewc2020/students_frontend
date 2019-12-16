@@ -11,7 +11,7 @@ let RUL = process.env.REST_URL;
 
 function getAll() {
     const requestOptions = { method: 'GET', headers: authHeader() };
-    return fetch('/users', requestOptions).then(handleResponse);
+    return fetch(`${RUL}/users`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -21,5 +21,5 @@ function getById(id) {
 
 function getCurrentUser(){
     const requestOptions = { method: 'GET', headers: authHeader() };
-    return fetch('/user/current', requestOptions).then(handleResponse);
+    return fetch(`${RUL}/user/current`, requestOptions).then(handleResponse);
 }
