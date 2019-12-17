@@ -19,7 +19,7 @@ function login(username, password) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'userName': username, 'password':  password })
     };
-    let RUL="http://localhost:8000";
+    let RUL = process.env.REST_URL;
     
     return fetch(`${RUL}/users/authenticate`, requestOptions)
         .then(handleResponse)
