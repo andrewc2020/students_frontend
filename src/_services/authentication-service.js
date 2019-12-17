@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import { handleResponse } from '../_helpers/';
 
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
-
+const RUL = process.env.REST_URL;
 export const authenticationService = {
     login,
     logout,
@@ -19,7 +19,7 @@ function login(username, password) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'userName': username, 'password':  password })
     };
-    let RUL = process.env.REST_URL;
+   
     
     return fetch(`${RUL}/users/authenticate`, requestOptions)
         .then(handleResponse)
