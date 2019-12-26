@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: students-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: students-frontend
+  template:
+    metadata:
+      labels:
+        app: students-frontend
+    spec:
+      containers:
+        - name: students-frontend
+          image: gcr.io/mycal-255414/students-frontend
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REST_URL
+              value: http://35.246.22.230:8000
+          imagePullPolicy: Always

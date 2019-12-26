@@ -6,6 +6,7 @@ import { handleResponse } from '../_helpers/';
 
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
 const RUL = process.env.REST_URL;
+
 export const authenticationService = {
     login,
     logout,
@@ -21,7 +22,7 @@ function login(username, password) {
     };
    
     
-    return fetch(`${RUL}/users/authenticate`, requestOptions)
+    return fetch(`http://${RUL}/users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes

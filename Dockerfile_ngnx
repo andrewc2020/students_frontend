@@ -1,0 +1,8 @@
+FROM nginx/nginx-ingress
+
+
+
+COPY default.conf /etc/nginx/nginx.conf
+
+
+

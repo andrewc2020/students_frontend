@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: students-frontend
+  labels:
+    app: students
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: students
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: students
+        tier: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: gcr.io/mycal-255414/students-frontend
+        ports:
+        - name: http-server
+          containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: REST_URL
+          value: http://students-backend:8000
