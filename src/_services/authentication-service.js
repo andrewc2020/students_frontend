@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 import { handleResponse } from '../_helpers/';
 
-const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
+const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage?localStorage.getItem('currentUser'):"{}"));
 
 export const authenticationService = {
     login,

@@ -8,6 +8,7 @@ export const userService = {
 };
 
 let RUL = process.env.REST_URL;
+console.log(`${RUL}`)
 
 function getAll() {
     const requestOptions = { method: 'GET', headers: authHeader() };
