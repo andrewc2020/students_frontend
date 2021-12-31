@@ -1,5 +1,6 @@
 
 import { authHeader, handleResponse } from '../_helpers';
+import {dotenv} from 'dotenv'
 
 export const userService = {
     getAll,
