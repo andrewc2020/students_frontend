@@ -9,7 +9,7 @@ class LoginPage extends React.Component {
         super(props);
 
         // redirect to home if already logged in
-        if (authenticationService.currentUserValue) { 
+        if (authenticationService.currentUserValue!==null) { 
             this.props.history.push('/');
         }
     }

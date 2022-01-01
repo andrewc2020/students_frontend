@@ -24,7 +24,7 @@ class App extends React.Component {
         authenticationService.currentUser.subscribe(x => this.setState({
             currentUser: x && x.user,
             isAdmin: x && x.user && x.user.isAdmin 
-        }));
+        }),(x) => this.setState({currentUser:null}), this.logout(), (complete) => {});
     }
 
     logout() {
