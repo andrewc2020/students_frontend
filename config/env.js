@@ -77,7 +77,8 @@ function getClientEnvironment(publicUrl) {
         // This should only be used as an escape hatch. Normally you would put
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
-        REST_URL: 'http://localhost:8000' 
+        REST_URL:'http://192.168.1.96:4000'
+    
 
         
        
